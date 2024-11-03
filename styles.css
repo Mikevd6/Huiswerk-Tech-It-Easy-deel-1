@@ -1,0 +1,9 @@
+.sold-count {
+    color: green;
+}
+.stock-count {
+    color: blue;
+}
+.remaining-count {
+    color: red;
+}
