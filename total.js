@@ -1,4 +1,3 @@
-
 // BEST VERKOPENDE TV
 export const bestSellingTv = {
     type: 'UHD 55AU7040',
@@ -329,3 +328,41 @@ export let inventory = [
     },
 ];
 
+export function calculateRemaining(inventory) {
+    return inventory.reduce((total, tv) => total + (tv.originalStock - tv.sold), 0);
+}
+
+export function calculateSold(inventory) {
+    return inventory.reduce((total, tv) => total + tv.sold, 0);
+}
+
+export function calculateStock(inventory) {
+    return inventory.reduce((total, tv) => total + tv.originalStock, 0);
+}
+
+.sold-count {
+    color: green;
+}
+.stock-count {
+    color: blue;
+}
+.remaining-count {
+    color: red;
+}
+
+import React from 'react';
+import { calculateSold } from './calculateSold';
+import { calculateStock } from './calculateStock';
+import { calculateRemaining } from './calculateRemaining';
+import inventory from './constants/inventory';
+function App() {
+    return (
+        <div>
+            <h1>Tech It Easy Dashboard</h1>
+            <p className="sold-count">Totaal verkochte TV's: {calculateSold(inventory)}</p>
+            <p className="stock-count">Totaal ingekochte TV's: {calculateStock(inventory)}</p>
+            <p className="remaining-count">Nog te verkopen TV's: {calculateRemaining(inventory)}</p>
+        </div>
+    );
+}
+export default App;
