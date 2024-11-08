@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { calculateSold } from './calculateSold.js';
 import { calculatestock } from './calculatestock.js';
