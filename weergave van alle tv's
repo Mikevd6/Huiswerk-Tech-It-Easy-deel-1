@@ -1,0 +1,7 @@
+export function displayAllTvs(inventory) {
+    return inventory.map(tv => ({
+        name: formatTvName(tv),
+        price: formatTvPrice(tv.price),
+        sizes: formatAvailableSizes(tv.availableSizes),
+    }));
+}
