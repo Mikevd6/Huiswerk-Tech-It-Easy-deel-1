@@ -3896,3 +3896,26 @@ export function calculateRemaining(inventory) {
 export function calculateStock(inventory) {
     return inventory.reduce((total, tv) => total + tv.originalStock, 0);
 }
+function App() {
+    const allTvs = displayAllTvs(inventory);
+
+    return (
+        <div>
+            <h1>Tech It Easy Dashboard</h1>
+            <p className="sold-count">Totaal verkochte TV's: {calculateSold(inventory)}</p>
+            <p className="stock-count">Totaal ingekochte TV's: {calculateStock(inventory)}</p>
+            <p className="remaining-count">Nog te verkopen TV's: {calculateRemaining(inventory)}</p>
+
+            <h2>Alle TV's</h2>
+            <ul>
+                {allTvs.map((tv, index) => (
+                    <li key={index}>
+                        <h3>{tv.name}</h3>
+                        <p>{tv.price}</p>
+                        <p>{tv.sizes}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
